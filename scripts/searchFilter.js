@@ -21,6 +21,7 @@ export function handleCategoryFilter() {
             e.preventDefault();
             const category = link.getAttribute('data-category');
 
+            // Show/hide products based on the selected category
             document.querySelectorAll('.product').forEach(product => {
                 if (category === 'all' || product.getAttribute('data-category') === category) {
                     product.style.display = 'block';
@@ -28,6 +29,12 @@ export function handleCategoryFilter() {
                     product.style.display = 'none';
                 }
             });
+
+            // Remove the active class from all category links
+            document.querySelectorAll('.category-link').forEach(link => link.classList.remove('active'));
+
+            // Add the active class to the clicked category link
+            link.classList.add('active');
         });
     });
 }
