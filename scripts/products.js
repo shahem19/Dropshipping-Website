@@ -3,7 +3,7 @@ import { addToCart, showConfirmationMessage } from './cart.js';
 // Add click event listeners to each product for expanding/collapsing the product card
 export function handleProductExpansion() {
     document.querySelectorAll('.product').forEach(product => {
-        product.addEventListener('click', () => {
+        product.querySelector('.product-image').addEventListener('click', () => {
             product.classList.toggle('expanded');
         });
     });
@@ -22,6 +22,9 @@ export function handleAddToCart() {
 
             const quantityInput = product.querySelector('.quantity-input');
             const quantity = parseInt(quantityInput.value) || 1;
+
+            // Debugging logs to verify variables
+            console.log(`Adding to cart: ${productName}, ${quantity}x, Price: $${productPrice}`);
 
             addToCart(productName, productPrice, productImage, quantity);
             showConfirmationMessage(`${quantity} ${productName} added to your cart!`);
