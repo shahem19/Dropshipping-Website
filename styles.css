@@ -1,0 +1,511 @@
+/* Global reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body and font styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Ensure footer does not overlap with the content */
+html, body {
+    min-height: 100%;
+    position: relative;
+}
+
+/* Parallax background section */
+.parallax {
+    background-image: url('images/your-new-bg.jpg'); /* Use your new background image */
+    height: 100vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Overlay to darken the background */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark overlay */
+}
+
+/* Overlay text in the parallax section */
+.overlay-text {
+    position: relative; /* Ensure it layers over the overlay */
+    text-align: center;
+    color: white;
+    z-index: 2; /* Make sure it's above the overlay */
+    animation: fadeIn 1.5s ease-in-out; /* Add fade-in animation */
+}
+
+.overlay-text h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.overlay-text p {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+/* Call-to-action button styling */
+.cta-button {
+    padding: 15px 30px;
+    background-color: #e74c3c;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Animating the text */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Category menu styles */
+.category-menu {
+    background-color: #f4f4f9;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    z-index: 100;
+}
+
+.category-menu.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #f4f4f9;
+}
+
+.category-menu ul {
+    list-style: none;
+    display: inline-block;
+}
+
+.category-menu li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.category-menu a {
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.category-menu a.active {
+    color: #e74c3c;
+}
+
+.category-menu a:hover {
+    color: #c0392b;
+}
+
+/* View cart button in the header */
+.view-cart-btn {
+    margin-left: 20px;
+    font-size: 1.1rem;
+    color: #3498db;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.view-cart-btn:hover {
+    color: #2980b9;
+}
+
+/* Cart badge styling */
+.cart-badge {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1rem;
+    border-radius: 50%;
+    padding: 5px 10px;
+    position: absolute;
+    right: 10px;
+    top: 0;
+    display: none;
+}
+
+/* Search bar styling */
+.search-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.search-bar {
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    font-size: 1.2rem;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Product section styling */
+.product-section {
+    padding: 50px;
+    background-color: #fff;
+    text-align: center;
+}
+
+/* Product image styling */
+.product-image {
+    width: 100%; /* Ensure the product image container takes full width */
+    max-width: 300px; /* Optional: Limit max width for product images */
+    margin: 0 auto;
+    overflow: hidden; /* Ensure any overflow is hidden */
+}
+
+.product-image img {
+    width: 100%; /* Make sure the image adjusts to the container width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures the image covers the container without being distorted */
+    transition: transform 0.3s ease; /* Add smooth transition for scaling */
+}
+
+.product-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Individual product styling */
+.product {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, max-height 0.3s ease;
+    overflow: hidden; /* Hide extra content initially */
+    cursor: pointer; /* Change cursor to pointer */
+    max-height: 400px; /* Initial height constraint */
+}
+
+/* Hover effect */
+.product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Expanded product */
+.product.expanded {
+    max-height: 1000px; /* Expand height when clicked */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: max-height 0.5s ease; /* Smooth expansion */
+}
+
+/* Expanded product image */
+.product img {
+    transition: transform 0.3s ease;
+}
+
+.product.expanded img {
+    transform: scale(1.2); /* Scale image on expand */
+}
+
+/* Hidden content (description, specs, etc.) */
+.product .extra-info {
+    display: none; /* Hidden by default */
+}
+
+.product.expanded .extra-info {
+    display: block; /* Show when expanded */
+    margin-top: 20px;
+    font-size: 1rem;
+    text-align: left;
+}
+
+/* Add-to-cart button styling */
+.cart-btn {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cart-btn:hover {
+    background-color: #2980b9;
+}
+
+/* Quantity input styling */
+.quantity-input {
+    width: 50px;
+    margin: 10px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Cart tracker styling (hidden by default) */
+#cart-tracker {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    display: none;
+}
+
+#cart-tracker h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#cart-tracker p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+/* Testimonials section */
+#testimonials {
+    padding: 50px;
+    background-color: #f4f4f9;
+    text-align: center;
+}
+
+#testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/* Footer section */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #333;
+    color: white;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Cart section on cart page */
+#cart-section {
+    width: 80%;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#cart-items {
+    margin-bottom: 30px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eaeaea;
+    align-items: center;
+}
+
+.cart-item img {
+    max-width: 80px;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.cart-item h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.cart-item p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+/* Quantity control buttons in the cart */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.quantity-control button {
+    padding: 5px 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-control button:hover {
+    background-color: #2980b9;
+}
+
+.quantity-control input {
+    width: 40px;
+    text-align: center;
+    font-size: 1rem;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.cart-item-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #e74c3c;
+}
+
+/* Remove button for cart items */
+.remove-btn {
+    padding: 8px 15px;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.remove-btn:hover {
+    background-color: #c0392b;
+}
+
+/* Cart summary styling */
+#cart-summary {
+    text-align: right;
+    margin-top: 20px;
+}
+
+#cart-summary h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+#total-amount {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+/* Call-to-action button on cart page */
+.cta-button {
+    padding: 12px 25px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    background-color: #2980b9;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .product-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .category-menu ul {
+        flex-direction: column;
+    }
+
+    .overlay-text h1 {
+        font-size: 2rem;
+    }
+
+    .overlay-text p {
+        font-size: 1rem;
+    }
+
+    .parallax {
+        background-attachment: scroll;
+    }
+}
+
+/* Additional styling for confirmation message */
+.confirmation-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+    opacity: 0.9;
+}

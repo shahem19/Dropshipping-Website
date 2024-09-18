@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative Dropshipping Store - Discover the latest trends in dropshipping! Shop amazing products now!">
+    <meta name="keywords" content="dropshipping, eCommerce, online store, buy online, cool products">
+    <meta property="og:title" content="Creative Dropshipping Store">
+    <meta property="og:description" content="Discover the latest trends in dropshipping! Shop amazing products now!">
+    <meta property="og:image" content="images/parallax-bg.jpg">
+    <meta property="og:url" content="https://yourstore.com">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Creative Dropshipping Store</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts/script.js"></script>
+</head>
+<body>
+
+    <!-- PARALLAX SECTION -->
+    <div class="parallax" style="background-image: url('images/your-new-bg.jpg');">
+        <div class="overlay"></div>
+        <div class="overlay-text">
+            <h1>Shop Amazing Products</h1>
+            <p>Discover the latest trends in dropshipping!</p>
+            <a href="#products" class="cta-button">Explore Now</a>
+        </div>
+    </div>
+
+    <!-- CATEGORY MENU -->
+    <nav class="category-menu sticky">
+        <ul>
+            <li><a href="#all" class="category-link active" data-category="all">All Products</a></li>
+            <li><a href="#gadgets" class="category-link" data-category="gadgets">Gadgets</a></li>
+            <li><a href="#fashion" class="category-link" data-category="fashion">Fashion</a></li>
+        </ul>
+        <a href="cart.html" class="view-cart-btn">🛒 View Cart <span id="cart-count">(0)</span></a>
+        <span id="cart-badge" class="cart-badge">(0)</span> <!-- Cart Badge -->
+    </nav>
+
+    <!-- SEARCH BAR -->
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Search products..." class="search-bar">
+    </div>
+
+    <!-- CART TRACKER (hidden by default) -->
+    <div id="cart-tracker">
+        <h2>Cart Summary</h2>
+        <p id="cart-tracker-count">Items: 0</p>
+        <p id="cart-tracker-total">Total: $0.00</p>
+        <a href="cart.html" class="cta-button">Checkout</a>
+    </div>
+
+    <!-- PRODUCT SECTION -->
+    <section id="products" class="product-section">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product" data-category="gadgets" data-product-name="Cool Gadget 1" data-price="29.99">
+                <div class="product-image">
+                    <img src="images/last of us.jpg" alt="Cool Gadget 1" class="active" loading="lazy"> <!-- Lazy-loaded -->
+                </div>
+                <h2>Cool Gadget 1</h2>
+                <p class="price">$29.99</p>
+                <input type="number" class="quantity-input" min="1" value="1"> <!-- Quantity input -->
+                <button class="cart-btn">Add to Cart</button>
+
+                <!-- Hidden content that appears when expanded -->
+                <div class="extra-info">
+                    <p>This is a cool gadget that will change your life. It's durable, affordable, and highly rated by users. Features include a built-in flashlight, extended battery life, and a sleek design. Buy now for an exclusive offer!</p>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product" data-category="fashion" data-product-name="Stylish Fashion Item" data-price="39.99">
+                <div class="product-image">
+                    <img src="images/product2.jpg" alt="Stylish Fashion Item" class="active" loading="lazy">
+                </div>
+                <h2>Stylish Fashion Item</h2>
+                <p class="price">$39.99</p>
+                <input type="number" class="quantity-input" min="1" value="1">
+                <button class="cart-btn">Add to Cart</button>
+
+                <!-- Hidden content that appears when expanded -->
+                <div class="extra-info">
+                    <p>This stylish fashion item is made of high-quality materials and designed to make a statement. Available in multiple colors and sizes. Order now to enjoy a special discount!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section id="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonial">
+            <p>"Amazing products and fast delivery!" - John D.</p>
+        </div>
+        <div class="testimonial">
+            <p>"I love this store! Great variety of gadgets." - Sarah W.</p>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Creative Dropshipping Store</p>
+            <p>Follow us on social media for the latest updates.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
