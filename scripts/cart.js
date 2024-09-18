@@ -25,6 +25,8 @@ export function updateCartCount() {
 
 // Function to add an item to the cart
 export function addToCart(productName, productPrice, productImage, quantity) {
+    let cart = localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
+
     const existingProduct = cart.find(item => item.name === productName);
 
     if (existingProduct) {
@@ -38,6 +40,7 @@ export function addToCart(productName, productPrice, productImage, quantity) {
         });
     }
 
+    // Save the updated cart in localStorage
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartTracker();
     updateCartCount();
